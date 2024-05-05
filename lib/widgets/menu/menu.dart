@@ -56,8 +56,8 @@ class Menu extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.calendar_month),
-            title: const Text('Dividendos Programados'),
-            onTap: () => RedirectPage.redirectToScheduledDividendsPage(
+            title: const Text('Dividendos Anunciados'),
+            onTap: () => RedirectPage.redirectToAnnouncedDividendsPage(
               RedirectHomePageDTO(context: context),
             ),
           ),

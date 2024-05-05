@@ -4,16 +4,16 @@ class DividendTax {
   DividendTax(StockDividendType stockDividendType) {
     switch (stockDividendType) {
       case StockDividendType.jcp:
-        tax = 0.85;
+        tax = 1.0;
         break;
       case StockDividendType.dividend:
         tax = 1.0;
         break;
       case StockDividendType.restCapDin:
-        tax = 0.85;
+        tax = 1.0;
         break;
       case StockDividendType.yield:
-        tax = 0.85;
+        tax = 1.0;
         break;
       case StockDividendType.none:
         tax = 1.0;

@@ -5,12 +5,12 @@ import 'package:my_dividends/infra/data_sources/imp/stock_data_source_imp.dart';
 import 'package:my_dividends/infra/repositories/imp/my_dividends_repository_imp.dart';
 import 'package:my_dividends/infra/data_sources/imp/stock_negotiation_data_source_imp.dart';
 import 'package:my_dividends/presentation/add_negotiation/bloc/add_negotiation_bloc.dart';
+import 'package:my_dividends/presentation/announced_dividends/bloc/announced_dividends_bloc.dart';
 import 'package:my_dividends/presentation/home/bloc/home_bloc.dart';
-import 'package:my_dividends/presentation/scheduled_dividends/bloc/scheduled_dividends_bloc.dart';
 import 'package:my_dividends/services/dividends/calculate_dividend_history_per_stock.dart';
 import 'package:my_dividends/services/dividends/calculate_dividends_received_by_stock.dart';
 import 'package:my_dividends/services/dividends/calculate_dividends_to_receive_by_stock.dart';
-import 'package:my_dividends/services/dividends/calculate_scheduled_dividends_list.dart';
+import 'package:my_dividends/services/dividends/calculate_announced_dividends_list.dart';
 
 class DependencyInjection {
   static void load() {
@@ -52,12 +52,12 @@ class DependencyInjection {
       ),
     );
 
-    registerDependency<CalculateScheduledDividendsList>(
-      () => CalculateScheduledDividendsList(),
+    registerDependency<CalculateAnnouncedDividendsList>(
+      () => CalculateAnnouncedDividendsList(),
     );
 
-    registerDependency<ScheduledDividendsBloc>(
-      () => ScheduledDividendsBloc(
+    registerDependency<AnnouncedDividendsBloc>(
+      () => AnnouncedDividendsBloc(
         getDependency<MyDividendsRepository>(),
       ),
     );

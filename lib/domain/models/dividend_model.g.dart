@@ -8,13 +8,13 @@ part of 'dividend_model.dart';
 
 DividendModel _$DividendModelFromJson(Map<String, dynamic> json) =>
     DividendModel(
-      isinCode: json['isinCode'] as String,
-      value: (json['rate'] as num).toDouble(),
+      isinCode: json['isinCode'] as String?,
+      value: (json['value'] as num).toDouble(),
       dateWith: DateTime.parse(json['lastDatePrior'] as String),
       announcementDate: DateTime.parse(json['approvedOn'] as String),
       stockDividendType:
-          StockDividendTypeExtension.fromName(json['label'] as String),
-      paymentDate: json['paymentDate'] == null
+          StockDividendTypeExtension.fromName(json['type'] as String),
+      paymentDate: json['paymentDate'] == null || json['paymentDate'].isEmpty
           ? null
           : DateTime.parse(json['paymentDate'] as String),
     );
@@ -22,11 +22,11 @@ DividendModel _$DividendModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$DividendModelToJson(DividendModel instance) =>
     <String, dynamic>{
       'isinCode': instance.isinCode,
-      'rate': instance.value,
+      'value': instance.value,
       'paymentDate': instance.paymentDate?.toIso8601String(),
       'lastDatePrior': instance.dateWith.toIso8601String(),
       'approvedOn': instance.announcementDate.toIso8601String(),
-      'label': _$StockDividendTypeEnumMap[instance.stockDividendType]!,
+      'type': _$StockDividendTypeEnumMap[instance.stockDividendType]!,
     };
 
 const _$StockDividendTypeEnumMap = {

@@ -24,9 +24,9 @@ extension StockDividendTypeExtension on StockDividendType {
 
   static StockDividendType fromName(String name) {
     switch (name) {
-      case 'JRS CAP PROPRIO':
+      case 'jscp':
         return StockDividendType.jcp;
-      case 'DIVIDENDO':
+      case 'dividendos':
         return StockDividendType.dividend;
       case 'REST CAP DIN':
         return StockDividendType.restCapDin;

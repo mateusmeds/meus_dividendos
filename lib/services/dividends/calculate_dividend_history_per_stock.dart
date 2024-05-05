@@ -26,12 +26,9 @@ class CalculateDividendHistoryPerStock {
         return const Right([]);
       }
 
-      List<DividendModel> dividendsByIsinCodeList =
-          filterStockDividendsByIsinCode(stock.isinCode!, dividends);
-
       List<DividendModel> dividendsByDateWithFromFirstNegotiationDateList =
           filterDividendsByDateWithFromFirstNegotiationDate(
-              dividendsByIsinCodeList, stockNegotiations);
+              dividends, stockNegotiations);
 
       List<DividendHistoryModel> dividendsCalendar = [];
 

@@ -6,8 +6,8 @@ import 'package:my_dividends/utils/currency_formatter.dart';
 import 'package:my_dividends/utils/date_formatter.dart';
 import 'package:my_dividends/widgets/export.dart';
 
-class ScheduledividendsItem extends StatelessWidget {
-  const ScheduledividendsItem({
+class AnnouncedDividendsItem extends StatelessWidget {
+  const AnnouncedDividendsItem({
     Key? key,
     required this.stock,
     required this.dividend,

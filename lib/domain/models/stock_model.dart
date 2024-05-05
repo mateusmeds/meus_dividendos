@@ -51,5 +51,8 @@ class StockModel extends BaseEntity {
 
   Map<String, dynamic> toJson() => _$StockModelToJson(this);
 
-  double get currentTotalValue => currentQuote! * quantity!;
+  double get currentTotalValue {
+    var currentQuote = this.currentQuote ?? 0;
+    return currentQuote * quantity!;
+  }
 }

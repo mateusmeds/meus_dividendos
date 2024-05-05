@@ -25,12 +25,12 @@ class CalculateDividendsReceivedByStock {
         return const Right(0);
       }
 
-      List<DividendModel> dividendsByIsinCodeList =
-          filterStockDividendsByIsinCode(stock.isinCode!, dividends);
+      // List<DividendModel> dividendsByIsinCodeList =
+      //     filterStockDividendsByIsinCode(stock.isinCode!, dividends);
 
       List<DividendModel> dividendsByDateWithFromFirstNegotiationDateList =
           filterDividendsByDateWithFromFirstNegotiationDate(
-              dividendsByIsinCodeList, stockNegotiations);
+              dividends, stockNegotiations);
 
       List<DividendModel> dividendsOnDayOrAfterPaymentDateList =
           _filterDividendsInTheDayOrAfterPaymentDate(
@@ -66,8 +66,9 @@ class CalculateDividendsReceivedByStock {
 
     return dividends
         .where((dividend) =>
-            dividend.paymentDate!.isBefore(date) ||
-            dividend.paymentDate!.isAtSameMomentAs(date))
+            dividend.paymentDate != null &&
+            (dividend.paymentDate!.isBefore(date) ||
+                dividend.paymentDate!.isAtSameMomentAs(date)))
         .toList();
   }
 }

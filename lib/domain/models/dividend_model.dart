@@ -7,16 +7,16 @@ part 'dividend_model.g.dart';
 @JsonSerializable()
 class DividendModel {
   DividendModel({
-    required this.isinCode,
     required this.value,
     required this.dateWith,
     required this.announcementDate,
     required this.stockDividendType,
+    this.isinCode,
     this.paymentDate,
   });
 
-  final String isinCode;
-  @JsonKey(name: 'rate')
+  final String? isinCode;
+  @JsonKey(name: 'value')
   final double value;
   @JsonKey(name: 'paymentDate')
   final DateTime? paymentDate;
@@ -24,7 +24,7 @@ class DividendModel {
   final DateTime dateWith;
   @JsonKey(name: 'approvedOn')
   final DateTime announcementDate;
-  @JsonKey(name: 'label')
+  @JsonKey(name: 'type')
   final StockDividendType stockDividendType;
 
   DividendTax get dividendTax {

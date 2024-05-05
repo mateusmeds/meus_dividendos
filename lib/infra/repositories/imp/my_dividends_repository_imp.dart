@@ -125,7 +125,7 @@ class MyDividendsRepositoryImp implements MyDividendsRepository {
       var stock = await _myDividendsDataSource.getStockByTicker(ticker);
       return stock.fold((l) => Left(l), (r) {
         StockOutputModel stockOutputModel = StockOutputModel.fromJson(r);
-        return Right(stockOutputModel.stocks!.first);
+        return Right(stockOutputModel.stocks?.first);
       });
     } on Exception {
       return Left(Exception('Error getting stock'));

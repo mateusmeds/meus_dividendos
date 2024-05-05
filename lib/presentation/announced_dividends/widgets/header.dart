@@ -21,7 +21,7 @@ class Header extends StatelessWidget {
             width: 10,
           ),
           Text(
-            'Dividendos programados ($dividendCount)',
+            'Dividendos Anunciados ($dividendCount)',
             style: const TextStyle(
               fontSize: 15,
             ),

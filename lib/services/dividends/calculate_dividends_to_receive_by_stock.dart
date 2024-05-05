@@ -24,12 +24,9 @@ class CalculateDividendsToReceiveByStock {
         return const Right(0);
       }
 
-      List<DividendModel> dividendsByIsinCodeList =
-          filterStockDividendsByIsinCode(stock.isinCode!, dividends);
-
       List<DividendModel> dividendsByDateWithFromFirstNegotiationDateList =
           filterDividendsByDateWithFromFirstNegotiationDate(
-              dividendsByIsinCodeList, stockNegotiations);
+              dividends, stockNegotiations);
 
       List<DividendModel> dividendsBeforePaymentDateList =
           _filterDividendsBeforePaymentDate(
@@ -62,7 +59,9 @@ class CalculateDividendsToReceiveByStock {
   List<DividendModel> _filterDividendsBeforePaymentDate(
       List<DividendModel> dividends) {
     return dividends
-        .where((dividend) => dividend.paymentDate!.isAfter(DateTime.now()))
+        .where((dividend) =>
+            dividend.paymentDate == null ||
+            dividend.paymentDate!.isAfter(DateTime.now()))
         .toList();
   }
 }

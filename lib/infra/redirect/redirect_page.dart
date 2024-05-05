@@ -3,8 +3,8 @@ import 'package:my_dividends/domain/dtos/redirect_add_negociation_page_dto.dart'
 import 'package:my_dividends/domain/dtos/redirect_home_page_dto.dart';
 import 'package:my_dividends/domain/dtos/redirect_stock_details_page_dto.dart';
 import 'package:my_dividends/presentation/add_negotiation/page/add_negotiation_page.dart';
+import 'package:my_dividends/presentation/announced_dividends/page/announced_dividends_page.dart';
 import 'package:my_dividends/presentation/home/page/home_page.dart';
-import 'package:my_dividends/presentation/scheduled_dividends/page/scheduled_dividends_page.dart';
 import 'package:my_dividends/presentation/stock_details/page/stock_details_page.dart';
 
 class RedirectPage {
@@ -41,12 +41,12 @@ class RedirectPage {
     );
   }
 
-  static void redirectToScheduledDividendsPage(
+  static void redirectToAnnouncedDividendsPage(
     RedirectHomePageDTO redirectHomePageDTO,
   ) {
     _redirect(
       redirectHomePageDTO.context,
-      page: const ScheduledDividendsPage(),
+      page: const AnnouncedDividendsPage(),
       replace: redirectHomePageDTO.replace,
       removeUntil: redirectHomePageDTO.removeUntil,
     );
